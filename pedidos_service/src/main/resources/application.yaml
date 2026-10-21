@@ -1,3 +1,17 @@
+server:
+  port: 8081
+
 spring:
   application:
-    name: pedidos_service
+    name: pedidos-service
+  grpc:
+    client:
+      channel:
+        clientes:
+          target: static://localhost:9090
+
+  kafka:
+    bootstrap-servers: localhost:9092
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.apache.kafka.common.serialization.StringSerializer
